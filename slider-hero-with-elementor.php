@@ -3,7 +3,7 @@
  * Plugin Name: Elementor Hero Slider
  * Description: Create unlimited beautiful sliders with Elementor Page Builder.
  * Plugin URI:  https://pixelplus.vn
- * Version:     1.0.3
+ * Version:     1.0.4
  * Author:      Pixel+
  * Author URI:  https://pixelplus.vn
  * Text Domain: slider-hero-with-elementor
@@ -30,7 +30,7 @@ final class Slider_Hero_with_Elementor {
 	 *
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.0.3';
+	const VERSION = '1.0.4';
 
 	/**
 	 * Minimum Elementor Version
@@ -236,7 +236,7 @@ final class Slider_Hero_with_Elementor {
     \Elementor\Plugin::instance()->elements_manager->add_category(
       'slider-hero-with-elementor',
       array(
-				'title' => __( 'Slider Hero with Elementor', 'slider-hero-with-elementor' ),
+				'title' => __( 'Elementor Hero Slider', 'slider-hero-with-elementor' ),
 				'icon'  => 'fa fa-plug',
       ) );
 	}

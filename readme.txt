@@ -4,7 +4,7 @@ Donate link: https://namncn.com/donate/
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: slides, carousel, slider
-Tested up to: 5.3
+Tested up to: 5.4
 Requires PHP: 5.6.28
 
 Create unlimited beautiful sliders with Elementor Page Builder.
@@ -44,6 +44,9 @@ Main plugins from Nam Truong:
 == Screenshots ==
 
 == Changelog ==
+
+= 1.0.4 =
+* Fix: CSS arrows.
 
 = 1.0.3 =
 * Fix bugs.

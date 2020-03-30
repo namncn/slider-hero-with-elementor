@@ -1,6 +1,8 @@
 <?php
 namespace Slider_Hero_with_Elementor\Widget;
 
+use Elementor\Controls_Manager;
+
 /**
  * Slider Hero with Elementor Widget.
  *
@@ -49,7 +51,7 @@ class Slider extends \Elementor\Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-slideshow';
+		return 'eicon-slides';
 	}
 
 	/**
@@ -88,15 +90,15 @@ class Slider extends \Elementor\Widget_Base {
 			'content_section',
 			[
 				'label' => __( 'Content', 'slider-hero-with-elementor' ),
-				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
+				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
 
 		$library_ids = get_posts( array(
 			'post_type'      => 'elementor_library',
 			'fields'         => 'ids',
-			// 'meta_key'       => 'elementor_library_type',
-			// 'meta_value'     => 'header',
+			// 'meta_key'       => 'tabs_group',
+			// 'meta_value'     => 'library',
 			'posts_per_page' => -1
 		));
 
@@ -112,7 +114,7 @@ class Slider extends \Elementor\Widget_Base {
 			'slides',
 			[
 				'label'       => __( 'Select Slides', 'slider-hero-with-elementor' ),
-				'type'        => \Elementor\Controls_Manager::SELECT2,
+				'type'        => Controls_Manager::SELECT2,
 				'options'     => $templates,
 				'label_block' => true,
 				'multiple'    => true,
@@ -125,7 +127,7 @@ class Slider extends \Elementor\Widget_Base {
 			'section_slider_options',
 			[
 				'label' => __( 'Slider Options', 'slider-hero-with-elementor' ),
-				'type'  => \Elementor\Controls_Manager::SECTION,
+				'type'  => Controls_Manager::SECTION,
 			]
 		);
 
@@ -133,7 +135,7 @@ class Slider extends \Elementor\Widget_Base {
 			'navigation',
 			[
 				'label'   => __( 'Navigation', 'slider-hero-with-elementor' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'default' => 'both',
 				'options' => [
 					'both'   => __( 'Arrows and Dots', 'slider-hero-with-elementor' ),
@@ -148,7 +150,7 @@ class Slider extends \Elementor\Widget_Base {
 			'pause_on_hover',
 			[
 				'label'   => __( 'Pause on Hover', 'slider-hero-with-elementor' ),
-				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
 		);
@@ -157,7 +159,7 @@ class Slider extends \Elementor\Widget_Base {
 			'autoplay',
 			[
 				'label'   => __( 'Autoplay', 'slider-hero-with-elementor' ),
-				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
 		);
@@ -166,7 +168,7 @@ class Slider extends \Elementor\Widget_Base {
 			'autoplay_speed',
 			[
 				'label'     => __( 'Autoplay Speed', 'slider-hero-with-elementor' ),
-				'type'      => \Elementor\Controls_Manager::NUMBER,
+				'type'      => Controls_Manager::NUMBER,
 				'default'   => 5000,
 				'condition' => [
 					'autoplay' => 'yes',
@@ -178,7 +180,7 @@ class Slider extends \Elementor\Widget_Base {
 			'infinite',
 			[
 				'label'   => __( 'Infinite Loop', 'slider-hero-with-elementor' ),
-				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
 		);
@@ -187,7 +189,7 @@ class Slider extends \Elementor\Widget_Base {
 			'transition',
 			[
 				'label'   => __( 'Transition', 'slider-hero-with-elementor' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'default' => 'slide',
 				'options' => [
 					'slide' => __( 'Slide', 'slider-hero-with-elementor' ),
@@ -200,7 +202,7 @@ class Slider extends \Elementor\Widget_Base {
 			'transition_speed',
 			[
 				'label'   => __( 'Transition Speed (ms)', 'slider-hero-with-elementor' ),
-				'type'    => \Elementor\Controls_Manager::NUMBER,
+				'type'    => Controls_Manager::NUMBER,
 				'default' => 500,
 			]
 		);
@@ -209,7 +211,7 @@ class Slider extends \Elementor\Widget_Base {
 			'content_animation',
 			[
 				'label'   => __( 'Content Animation', 'slider-hero-with-elementor' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'default' => 'fadeInUp',
 				'options' => [
 					''            => __( 'None', 'slider-hero-with-elementor' ),
@@ -228,7 +230,7 @@ class Slider extends \Elementor\Widget_Base {
 			'section_style_navigation',
 			[
 				'label' => __( 'Navigation', 'slider-hero-with-elementor' ),
-				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'navigation' => [ 'arrows', 'dots', 'both' ],
 				],
@@ -239,7 +241,7 @@ class Slider extends \Elementor\Widget_Base {
 			'heading_style_arrows',
 			[
 				'label' => __( 'Arrows', 'slider-hero-with-elementor' ),
-				'type' => \Elementor\Controls_Manager::HEADING,
+				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -251,7 +253,7 @@ class Slider extends \Elementor\Widget_Base {
 			'arrows_size',
 			[
 				'label' => __( 'Arrows Size', 'slider-hero-with-elementor' ),
-				'type' => \Elementor\Controls_Manager::SLIDER,
+				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
 						'min' => 20,
@@ -259,6 +261,7 @@ class Slider extends \Elementor\Widget_Base {
 					],
 				],
 				'selectors' => [
+					'{{WRAPPER}} .slider-hero-with-elementor-wrapper .slick-slider > .slick-arrow' => 'width: auto;',
 					'{{WRAPPER}} .slider-hero-with-elementor-wrapper .slick-slider > .slick-prev:before, {{WRAPPER}} .slider-hero-with-elementor-wrapper .slick-slider > .slick-next:before' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
@@ -271,7 +274,7 @@ class Slider extends \Elementor\Widget_Base {
 			'arrows_color',
 			[
 				'label' => __( 'Arrows Color', 'slider-hero-with-elementor' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .slider-hero-with-elementor-wrapper .slick-slider > .slick-prev:before, {{WRAPPER}} .slider-hero-with-elementor-wrapper .slick-slider > .slick-next:before' => 'color: {{VALUE}};',
 				],
@@ -285,7 +288,7 @@ class Slider extends \Elementor\Widget_Base {
 			'heading_style_dots',
 			[
 				'label' => __( 'Dots', 'slider-hero-with-elementor' ),
-				'type' => \Elementor\Controls_Manager::HEADING,
+				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -297,7 +300,7 @@ class Slider extends \Elementor\Widget_Base {
 			'dots_size',
 			[
 				'label' => __( 'Dots Size', 'slider-hero-with-elementor' ),
-				'type' => \Elementor\Controls_Manager::SLIDER,
+				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
 						'min' => 5,
@@ -317,7 +320,7 @@ class Slider extends \Elementor\Widget_Base {
 			'dots_color',
 			[
 				'label' => __( 'Dots Color', 'slider-hero-with-elementor' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
+				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .slider-hero-with-elementor-wrapper .slider-hero-with-elementor > .slick-dots li button:before' => 'color: {{VALUE}};',
 				],
